@@ -35,6 +35,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fr.opensagres.poi.xwpf.converter.core.styles.paragraph.ParagraphRunDirectionProvider;
+import fr.opensagres.poi.xwpf.converter.core.styles.table.TableRunDirectionValueProvider;
 import org.apache.poi.ooxml.POIXMLDocumentPart;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
@@ -53,6 +55,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTBorder;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTDocDefaults;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTFont;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTNumPr;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTOnOff;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPPr;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTPPrBase;
@@ -448,6 +451,11 @@ public class XWPFStylesDocument
         return ParagraphBackgroundColorValueProvider.INSTANCE.getValue( pPr );
     }
 
+    /*enabling bidirectional support*/
+    public CTOnOff getParagraphRunDirection(XWPFParagraph docxParagraph) {
+        return ParagraphRunDirectionProvider.INSTANCE.getValue( docxParagraph, this );
+    }
+
     /**
      * @param paragraph
      * @return
@@ -784,6 +792,12 @@ public class XWPFStylesDocument
     {
         return fr.opensagres.poi.xwpf.converter.core.openxmlformats.styles.table.TableWidthValueProvider.INSTANCE.getValue( table,
                                                                                                                          this );
+    }
+
+    /*enabling bidirectional support*/
+    public CTOnOff getTableRunDirection(XWPFTable table )
+    {
+        return TableRunDirectionValueProvider.INSTANCE.getValue( table, this );
     }
 
     public ParagraphAlignment getTableAlignment( XWPFTable table )

@@ -449,6 +449,10 @@ public class ODTDefaultStylesGenerator
             startStyleIfNeeded(properties.getType(), properties.getStyleName());
             dynamicStyles.append( "style:text-position=\"super\" " );
         }
+        if (properties.getBackgroundColor() != null) {
+            startStyleIfNeeded(properties.getType(), properties.getStyleName());
+            dynamicStyles.append("fo:background-color=\"").append(properties.getBackgroundColor()).append("\" ");
+        }
 
         // <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
         setPropertiesKind( ODTStyleProperties.PARAGRAPH );

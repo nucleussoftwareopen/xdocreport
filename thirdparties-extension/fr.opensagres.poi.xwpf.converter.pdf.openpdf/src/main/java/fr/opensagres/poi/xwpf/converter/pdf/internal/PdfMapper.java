@@ -1316,7 +1316,7 @@ public class PdfMapper
                 marginBottom = stylesDocument.getTableMarginBottom( table );
             }
         }
-        if ( marginBottom != null )
+        if ( marginBottom != null && marginBottom > 0)
         {
             pdfPCell.setPaddingBottom( marginBottom );
         }

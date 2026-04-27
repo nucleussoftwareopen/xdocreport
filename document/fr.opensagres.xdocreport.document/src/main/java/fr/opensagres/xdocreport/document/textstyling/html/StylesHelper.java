@@ -254,6 +254,12 @@ public class StylesHelper
 
         }
 
+        // background-color
+        String backgroundColor = stylesMap.get("background-color");
+        if(backgroundColor != null) {
+            properties.setBackgroundColor(backgroundColor);
+        }
+
         // color
         String color = stylesMap.get( "color" );
         if ( color != null )

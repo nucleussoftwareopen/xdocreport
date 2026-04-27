@@ -59,6 +59,8 @@ public abstract class ContainerProperties
 
     private final ContainerType type;
 
+    private String   backgroundColor;
+
     public ContainerProperties( ContainerType type )
     {
         this.type = type;
@@ -179,6 +181,14 @@ public abstract class ContainerProperties
         this.color = color;
     }
 
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
     @Override
     public boolean equals( Object o )
     {
@@ -211,6 +221,8 @@ public abstract class ContainerProperties
             return false;
         if ( getStyleName() != null ? !getStyleName().equals( that.getStyleName() ) : that.getStyleName() != null )
             return false;
+        if ( getBackgroundColor() != null ? !getBackgroundColor().equals( that.getBackgroundColor() ) : that.getBackgroundColor() != null )
+            return false;
         return getType() == that.getType();
     }
 
@@ -229,6 +241,7 @@ public abstract class ContainerProperties
         result = 31 * result + ( getColor() != null ? getColor().hashCode() : 0 );
         result = 31 * result + ( getStyleName() != null ? getStyleName().hashCode() : 0 );
         result = 31 * result + ( getType() != null ? getType().hashCode() : 0 );
+        result = 31 * result + ( getBackgroundColor() != null ? getBackgroundColor().hashCode() : 0 );
         return result;
     }
 }

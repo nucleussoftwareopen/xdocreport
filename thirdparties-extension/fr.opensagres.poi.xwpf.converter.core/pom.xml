@@ -6,6 +6,7 @@
 		<version>2.2.0</version>
 	</parent>
 	<artifactId>fr.opensagres.poi.xwpf.converter.core</artifactId>
+	<version>2.2.0.1</version>
 	<name>XWPF Conveter core module</name>
 	<dependencies>
 		<dependency>

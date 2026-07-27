@@ -25,7 +25,6 @@
 package fr.opensagres.odfdom.converter.pdf.internal.stylable;
 
 import com.lowagie.text.Element;
-
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfWriter;
 import fr.opensagres.odfdom.converter.pdf.internal.styles.Style;
